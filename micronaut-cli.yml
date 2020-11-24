@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: design.mode
+---
+testFramework: junit
+sourceLanguage: java
