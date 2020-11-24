@@ -1,6 +1,8 @@
 package design.mode.observer.pubsub;
 
-public class Main {
+import java.util.Map;
+
+public class PubsubMain {
     public static void main(String[] args) {
         Sender sender = new Sender();
 
@@ -11,7 +13,7 @@ public class Main {
         sender.subscribe(receiver2);
 
         for (int i = 0; i < 10; i++) {
-            sender.send(i+"");
+            sender.send(Map.of(i+"","这是第"+i+"条消息"));
         }
     }
 }

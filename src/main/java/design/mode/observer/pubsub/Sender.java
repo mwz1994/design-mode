@@ -1,5 +1,6 @@
 package design.mode.observer.pubsub;
 
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Flow;
@@ -12,7 +13,6 @@ public class Sender implements Flow.Publisher {
         int THREAD_POOL_SIZE = 5;
         ExecutorService EXECUTOR = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
         publisher = new SubmissionPublisher<>(EXECUTOR,Flow.defaultBufferSize());
-//        publisher = new SubmissionPublisher<>();
     }
 
     @Override
@@ -24,8 +24,8 @@ public class Sender implements Flow.Publisher {
         return publisher;
     }
 
-    public void send(String s){
-        System.out.println("publish send msg : "+s);
-        getPublisher().submit(s);
+    public void send(Map<String,Object> map){
+        System.out.println("publish send msg : "+map);
+        getPublisher().submit(map);
     }
 }

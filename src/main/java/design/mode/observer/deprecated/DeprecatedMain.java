@@ -1,6 +1,6 @@
 package design.mode.observer.deprecated;
 
-public class Main {
+public class DeprecatedMain {
     public static void main(String[] args) {
         SubjectDemo subjectDemo = new SubjectDemo();
         ObserverA observerA = new ObserverA(subjectDemo);
