@@ -1,0 +1,1 @@
+hello lower case input stream, extends from filter input stream
