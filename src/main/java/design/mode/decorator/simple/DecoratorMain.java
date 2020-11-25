@@ -1,4 +1,4 @@
-package design.mode.decorator;
+package design.mode.decorator.simple;
 
 public class DecoratorMain {
     public static void main(String[] args) {

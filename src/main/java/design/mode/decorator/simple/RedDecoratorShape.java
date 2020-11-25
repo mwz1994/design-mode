@@ -1,4 +1,4 @@
-package design.mode.decorator;
+package design.mode.decorator.simple;
 
 public class RedDecoratorShape extends DecoratorShape {
 

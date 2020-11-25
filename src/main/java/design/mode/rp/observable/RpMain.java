@@ -1,4 +1,4 @@
-package design.mode.rp;
+package design.mode.rp.observable;
 
 import io.reactivex.Observable;
 import io.reactivex.observables.ConnectableObservable;
