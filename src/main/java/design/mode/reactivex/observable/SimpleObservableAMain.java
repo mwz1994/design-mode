@@ -1,17 +1,21 @@
-package design.mode.rp.observable;
+package design.mode.reactivex.observable;
 
 import io.reactivex.Observable;
 import io.reactivex.observables.ConnectableObservable;
 
-public class RpMain {
-    public static void main(String[] args) {
+import java.util.Map;
+
+public class SimpleObservableAMain {
+    public static void main(String[] args) throws InterruptedException {
 //        simple stream
-//        createDemo();
+        createDemo();
 //        hot stream
-        connectableObservableDemo();
+//        connectableObservableDemo();
     }
 
-    private static void connectableObservableDemo() {
+
+
+    private static void connectableObservableDemo() throws InterruptedException {
         ConnectableObservable<String> observable = Observable.just("alpha","beta","gamma","delta","epsilon").publish();
         observable.subscribe(s -> System.out.println("observer 1: "+s));
         observable.subscribe(s -> System.out.println("observer 2: "+s));
@@ -20,13 +24,18 @@ public class RpMain {
     }
 
     private static void createDemo() {
-        Observable<String> myStrings = Observable.create(emitter -> {
-            emitter.onNext("apple");
-            emitter.onNext("bear");
-            emitter.onNext("change");
+        Observable<Map<String,String>> myStrings = Observable.create(emitter -> {
+            emitter.onNext(Map.of("apple","red"));
+            emitter.onNext(Map.of("banana","yellow"));
+            emitter.onNext(Map.of("watermelon","green"));
+            emitter.onNext(Map.of("orange","orange"));
             emitter.onComplete();
         });
-        myStrings.subscribe(s-> System.out.println(s));
+        myStrings.subscribe(s->singlePrint(s));
+    }
+
+    private static void singlePrint(Map<String,String> map) {
+        System.out.println(map);
     }
 
     private static void simpleDemo() {
