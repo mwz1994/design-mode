@@ -1,14 +1,14 @@
-package design.mode.reactivex.observable;
-
+package design.mode.reactivex.observable.rxjava;
 
 import io.reactivex.Observable;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
-public class SimpleReactiveDemo {
+public class ReactiveDemo {
 
     public static void main(String[] args) {
-        Observable<String> switcherA = Observable.just("on", "off", "on", "on");
+        Observable<String> switcher = Observable.just("on", "off", "on", "on");
+
         Observable<String> switcherB = Observable.create(emitter -> {
             emitter.onNext("on");
             emitter.onNext("off");
@@ -17,12 +17,12 @@ public class SimpleReactiveDemo {
             emitter.onComplete();
         });
 
-        Subscriber lightA = new Subscriber<String>() {
+        Observer lightA = new Observer() {
             @Override
-            public void onSubscribe(Subscription s) {
+            public void onSubscribe(Disposable d) {
             }
             @Override
-            public void onNext(String o) {
+            public void onNext(Object o) {
                 System.out.println("lightA handle : " + o);
             }
             @Override
@@ -33,6 +33,7 @@ public class SimpleReactiveDemo {
                 System.out.println("lightA complete subscription");
             }
         };
-    }
 
+        switcher.subscribe(lightA);
+    }
 }

@@ -9,7 +9,7 @@ import java.util.concurrent.SubmissionPublisher;
 public class Sender implements Flow.Publisher {
     private SubmissionPublisher<Object> publisher;
 
-    Sender(){
+    public Sender(){
         int THREAD_POOL_SIZE = 5;
         ExecutorService EXECUTOR = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
         publisher = new SubmissionPublisher<>(EXECUTOR,Flow.defaultBufferSize());
@@ -27,5 +27,9 @@ public class Sender implements Flow.Publisher {
     public void send(Map<String,Object> map){
         System.out.println("publish send msg : "+map);
         getPublisher().submit(map);
+    }
+
+    public void printSender(){
+        System.out.println("here is sender");
     }
 }
