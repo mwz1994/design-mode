@@ -1,3 +1,7 @@
 micronaut:
   application:
     name: design-mode
+  server:
+    port: 9090
+    cors:
+      enabled: true

@@ -4,6 +4,11 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class PropertyListenerA implements PropertyChangeListener {
+    PropertySubject propertySubject;
+
+    PropertyListenerA(INoticeSubject iNoticeSubject){
+        iNoticeSubject.addListener(this);
+    }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

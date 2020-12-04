@@ -3,7 +3,8 @@ package design.mode.observer.property;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class PropertySubject  {
+public class PropertySubject implements INoticeSubject {
+
     PropertyChangeSupport support;
 
     PropertySubject(){
