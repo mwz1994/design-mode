@@ -9,8 +9,10 @@ import java.util.concurrent.*;
 @Slf4j
 public class CallableDemo {
 
+    static ExecutorService exec  = Executors.newCachedThreadPool();
+
     public static void main(String[] args) {
-        ExecutorService exec  = Executors.newCachedThreadPool();
+
 
         ArrayList<Future<String>> results = new ArrayList<>();
 
@@ -34,5 +36,7 @@ public class CallableDemo {
                 exec.shutdown();
             }
         }
+
+        log.info("main method completed");
     }
 }
