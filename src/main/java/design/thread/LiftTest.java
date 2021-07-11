@@ -1,11 +1,16 @@
 package design.thread;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class LiftTest {
+    static ExecutorService exec = Executors.newFixedThreadPool(5);
 
 
     public static void main(String[] args) {
-        LiftOff liftOff = new LiftOff();
-        Thread thread = new Thread(liftOff);
-        thread.start();
+        for (int i = 0; i < 5; i++) {
+            LiftOff liftOff = new LiftOff();
+            exec.submit(liftOff);
+        }
     }
 }

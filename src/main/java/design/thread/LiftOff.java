@@ -23,7 +23,11 @@ public class LiftOff implements Runnable{
     public void run() {
         while (countDown-- >0){
             log.info(status());
-            Thread.yield();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
