@@ -1,7 +1,18 @@
+buildscript{
+    repositories {
+        maven { url 'https://mirrors.huaweicloud.com/repository/maven/'}
+        maven { url 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/' }
+        maven { url 'https://maven.youzanyun.com/repository/maven-releases/'}
+        mavenCentral()
+        maven { url "https://jcenter.bintray.com" }
+    }
+}
+
 plugins {
-    id "net.ltgt.apt-eclipse" version "0.21"
-    id "com.github.johnrengelman.shadow" version "5.0.0"
+    id "com.github.johnrengelman.shadow" version "6.1.0"
     id "application"
+    id "io.freefair.lombok" version "5.3.0"
+    id 'io.micronaut.application' version '1.2.0'
 }
 
 
@@ -40,7 +51,7 @@ dependencies {
     testImplementation "io.micronaut.test:micronaut-test-junit5"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
     implementation("io.micronaut:micronaut-spring")
-    runtime 'org.aspectj:aspectjweaver:1.9.6'
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.6'
 }
 
 test.classpath += configurations.developmentOnly

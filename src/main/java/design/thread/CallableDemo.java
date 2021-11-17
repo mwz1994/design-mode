@@ -9,7 +9,9 @@ import java.util.concurrent.*;
 @Slf4j
 public class CallableDemo {
 
-    static ExecutorService exec  = Executors.newCachedThreadPool();
+    static ExecutorService exec  = Executors.newFixedThreadPool(10);
+
+//    static ThreadPoolExecutor exec = new ThreadPoolExecutor(2,10,1,TimeUnit.SECONDS,new ArrayBlockingQueue<>(10) );
 
     public static void main(String[] args) {
 
