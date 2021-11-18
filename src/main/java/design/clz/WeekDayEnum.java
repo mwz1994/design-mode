@@ -1,4 +1,4 @@
-package design.immutable;
+package design.clz;
 
 import java.util.HashMap;
 import java.util.Map;

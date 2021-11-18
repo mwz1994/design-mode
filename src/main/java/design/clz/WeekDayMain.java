@@ -1,4 +1,4 @@
-package design.immutable;
+package design.clz;
 
 /**
  * @author aspirin
@@ -9,5 +9,6 @@ public class WeekDayMain {
     public static void main(String[] args) {
         WeekDayEnum friday = WeekDayEnum.FRIDAY;
         System.out.println("day is "+friday);
+        System.out.println("find by code res "+WeekDayEnum.findByCode(1));
     }
 }
