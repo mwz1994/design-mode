@@ -1,5 +1,7 @@
 package basic.function;
 
+import basic.function.lambda.LambdaExpressions;
+
 /**
  * @author aspirin
  * @version 1.0
@@ -23,6 +25,8 @@ public class Strategize {
     }
 
     public static void main(String[] args) {
+        var res = LambdaExpressions.bod.detailed("functional program");
+        System.out.println("res is "+res);
         Strategy[] strategies = {
                 new Strategy() {
                     @Override
