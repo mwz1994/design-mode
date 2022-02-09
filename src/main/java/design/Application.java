@@ -1,4 +1,4 @@
-package design.mode;
+package design;
 
 import io.micronaut.runtime.Micronaut;
 
