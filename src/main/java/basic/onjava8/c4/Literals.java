@@ -11,8 +11,8 @@ public class Literals {
         int i2 = 057; // 8 进制
         int i3 = 124_456;
         double exp = 47e2; //科学计数
-        float f = 1.39e-2f;
-        System.out.printf("============\n========%x=====%n",i1);
+        float f = 1.39e-3f;
+        System.out.printf("=================%n");
         System.out.println("i1: " + Integer.valueOf(i1));
         System.out.println("i2: " + Integer.valueOf(i2));
         System.out.println("i3: " + i3);
