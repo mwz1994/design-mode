@@ -1,4 +1,4 @@
-package basic.action.first;
+package basic.action.c1;
 
 import lombok.Getter;
 import lombok.Setter;
