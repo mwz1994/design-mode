@@ -20,10 +20,14 @@ public class FilterApples {
             }
         });
 
+        List<Apple> result = filter(inventory,apple -> Color.RED.equals(apple.getColor()));
+
         System.out.println("heavy apples : "+heavyApples.toString());
         System.out.println("green apples : "+greenApples.toString());
         System.out.println("red apples : "+redApples.toString());
+        System.out.println("result apples : "+result.toString());
     }
+
 
     public static List<Apple> filterApples(List<Apple> inventory,ApplePredicate applePredicate){
         List<Apple> result = new ArrayList<>();
@@ -34,5 +38,15 @@ public class FilterApples {
             }
         }
         return result;
+    }
+
+    public static <T> List<T> filter(List<T> ts , TPredicate<T> predicate){
+        List<T> r = new ArrayList<>();
+        for (T t : ts){
+            if (predicate.test(t)){
+                r.add(t);
+            }
+        }
+        return r;
     }
 }
