@@ -22,19 +22,38 @@ public class ConsumerDemo {
             c.accept(i);
         }
     }
+
+    public String noStatic(){
+        return Thread.currentThread().getName();
+    }
 }
 
 class ConsumerMain{
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ConsumerDemo demo = new ConsumerDemo();
         System.out.println(Thread.currentThread().getName()+ " demo is "+demo.toString());
+        System.out.println(mainName()+ " main name is "+demo.toString());
+        System.out.println(getName()+ " get name is "+demo.toString());
+        System.out.println(demo.noStatic()+ " no-static name is "+demo.toString());
         demo.start();
 
         ExecutorService executorService = Executors.newCachedThreadPool();
-        Callable<String> callable = ()-> 42 + " " + Thread.currentThread().getName();
+        Callable<String> callable1 = ()-> 42 + " " + getName();
+        Callable<String> callable2 = ()-> 42 + " " + Thread.currentThread().getName();
 
-        var f = executorService.submit(callable);
+        var f1 = executorService.submit(callable1);
+        var f2 = executorService.submit(callable2);
 
-        System.out.println("future is "+ f.get());
+        System.out.println("future1 is "+ f1.get());
+        System.out.println("future2 is "+ f2.get());
+    }
+
+
+    public static String mainName(){
+        return Thread.currentThread().getName();
+    }
+
+    public static String getName(){
+        return Thread.currentThread().getName();
     }
 }
