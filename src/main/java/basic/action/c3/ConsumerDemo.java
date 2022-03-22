@@ -45,6 +45,7 @@ public class ConsumerDemo {
 
         Callable<String> callable1 = ()-> 47 + " " + getName();
         Callable<String> callable2 = ()-> 47 + " " + Thread.currentThread().getName();
+//        CallableImpl<String> callableImpl = ()->47+" callable "+Thread.currentThread().getName();
 
         Future<String> f1 = executorService.submit(callable1);
         Future<String> f2 = executorService.submit(callable2);
@@ -53,6 +54,14 @@ public class ConsumerDemo {
 
         System.out.println("future1 is "+ f1.get());
         System.out.println("future2 is "+ f2.get());
+    }
+}
+
+class CallableImpl implements Callable{
+
+    @Override
+    public Object call() throws Exception {
+        return "callable impl";
     }
 }
 
