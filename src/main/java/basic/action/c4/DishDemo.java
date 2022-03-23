@@ -36,6 +36,9 @@ public class DishDemo {
     public void printAll(){
         Menu.MENU.stream().forEach(System.out::println);
     }
+    public void printDistinct(){
+        Menu.MENU.stream().distinct().forEach(System.out::println);
+    }
 }
 
 
@@ -43,6 +46,9 @@ class DishMain{
     public static void main(String[] args) {
         DishDemo dishDemo = new DishDemo();
 //        dishDemo.demo();
+//        dishDemo.printAll();
+        dishDemo.printDistinct();
+        System.out.println("===================");
         dishDemo.printAll();
 //        dishDemo.detailStream();
     }

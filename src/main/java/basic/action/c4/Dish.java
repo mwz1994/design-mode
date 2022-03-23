@@ -1,5 +1,7 @@
 package basic.action.c4;
 
+import java.util.Objects;
+
 public class Dish {
     private final String name;
     private final boolean vegetarian;
@@ -27,6 +29,19 @@ public class Dish {
 
     public Type getType() {
         return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dish dish = (Dish) o;
+        return Objects.equals(name, dish.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
     @Override
