@@ -9,6 +9,16 @@ import java.util.Random;
  */
 public class MathOps {
     public static void main(String[] args) {
+        long multiplier =0x5DEECE66DL;
+        var mask = (1L << 48) - 1;
+        long addend = 0xBL;
+
+        System.out.println("multiplier is "+Long.valueOf(multiplier));
+        System.out.println("mask is "+Long.valueOf(mask));
+        System.out.println("addend is "+Long.valueOf(addend));
+
+        var result = (47 ^ multiplier) & mask;
+        System.out.println("(seed ^ multiplier) & mask : "+result);
         Random rand = new Random(47);
 
         System.out.println("get class : "+rand.getClass());
