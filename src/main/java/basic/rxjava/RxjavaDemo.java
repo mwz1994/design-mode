@@ -16,8 +16,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class RxjavaDemo {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
+        log.info("开始程序");
         Observable novel = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Exception {
@@ -27,6 +27,7 @@ public class RxjavaDemo {
                 emitter.onComplete();
             }
         });
+        log.info("被观察者创建完毕");
 
         Observer<String> reader = new Observer<String>() {
 
@@ -59,7 +60,7 @@ public class RxjavaDemo {
             }
         };
 
-
+        Thread.sleep(5000);
         novel.subscribe(reader);
     }
 }
