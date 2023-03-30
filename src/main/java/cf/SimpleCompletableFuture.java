@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
  * @version 1.0
  * @date 2023/3/29 14:08
  *
- * 零依赖情况下：CompletableFuture的创建
+ * 参考文章 https://tech.meituan.com/2022/05/12/principles-and-practices-of-completablefuture.html
  */
 public class SimpleCompletableFuture {
 
